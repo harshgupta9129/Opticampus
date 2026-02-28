@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core Brand - Sustainability Green */
+    --background: 150 30% 98%;
+    --foreground: 160 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 160 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 25% 10%;
+
+    /* Primary - Deep Emerald */
+    --primary: 160 84% 28%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Ocean Teal */
+    --secondary: 180 50% 92%;
+    --secondary-foreground: 180 60% 25%;
+
+    /* Muted - Soft sage */
+    --muted: 150 20% 94%;
+    --muted-foreground: 160 10% 45%;
+
+    /* Accent - Warm Amber */
+    --accent: 38 92% 50%;
+    --accent-foreground: 38 92% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 20% 88%;
+    --input: 150 20% 88%;
+    --ring: 160 84% 28%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(160 84% 28%) 0%, hsl(180 60% 35%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(150 30% 98%) 0%, hsl(160 40% 95%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(150 30% 98%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(38 92% 50%) 0%, hsl(28 92% 55%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsla(0, 0%, 100%, 0.9) 0%, hsla(150, 30%, 98%, 0.8) 100%);
+    
+    --shadow-sm: 0 1px 2px hsla(160, 25%, 10%, 0.05);
+    --shadow-md: 0 4px 6px -1px hsla(160, 25%, 10%, 0.08), 0 2px 4px -1px hsla(160, 25%, 10%, 0.04);
+    --shadow-lg: 0 10px 15px -3px hsla(160, 25%, 10%, 0.08), 0 4px 6px -2px hsla(160, 25%, 10%, 0.04);
+    --shadow-xl: 0 20px 25px -5px hsla(160, 25%, 10%, 0.1), 0 10px 10px -5px hsla(160, 25%, 10%, 0.04);
+    --shadow-glow: 0 0 40px hsla(160, 84%, 28%, 0.15);
+    --shadow-accent: 0 4px 14px hsla(38, 92%, 50%, 0.25);
+
+    /* Sidebar */
+    --sidebar-background: 160 25% 12%;
+    --sidebar-foreground: 150 20% 94%;
+    --sidebar-primary: 160 84% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 160 30% 18%;
+    --sidebar-accent-foreground: 150 20% 94%;
+    --sidebar-border: 160 20% 20%;
+    --sidebar-ring: 160 84% 45%;
+
+    /* Status colors */
+    --success: 160 84% 35%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 38 92% 15%;
+    --info: 200 80% 50%;
+    --info-foreground: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 160 25% 8%;
+    --foreground: 150 20% 94%;
+
+    --card: 160 25% 12%;
+    --card-foreground: 150 20% 94%;
+
+    --popover: 160 25% 12%;
+    --popover-foreground: 150 20% 94%;
+
+    --primary: 160 70% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 160 30% 18%;
+    --secondary-foreground: 150 20% 94%;
+
+    --muted: 160 20% 18%;
+    --muted-foreground: 150 15% 60%;
+
+    --accent: 38 85% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 160 20% 20%;
+    --input: 160 20% 20%;
+    --ring: 160 70% 45%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(160 70% 40%) 0%, hsl(180 55% 35%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(160 25% 8%) 0%, hsl(160 30% 12%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(160 25% 14%) 0%, hsl(160 25% 10%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsla(160, 25%, 15%, 0.9) 0%, hsla(160, 25%, 10%, 0.8) 100%);
+    
+    --shadow-glow: 0 0 40px hsla(160, 70%, 45%, 0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-xl border border-white/20;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .gradient-bg {
+    background-image: var(--gradient-primary);
+  }
+
+  .gradient-hero-bg {
+    background-image: var(--gradient-hero);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+
+  .card-hover:hover {
+    @apply -translate-y-1;
+    box-shadow: var(--shadow-xl);
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+
+
+
+/* ===== GOOGLE TRANSLATE CLEAN FIX ===== */
+
+
+/* .goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0px !important;
+}
+
+
+.goog-logo-link {
+  display: none !important;
+}
+
+.goog-te-gadget {
+  font-size: 0px !important;
+} */
+
+
+
+/* ===== FULL GOOGLE TRANSLATE BAR REMOVE ===== */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0px !important;
+}
+
+.goog-logo-link {
+  display: none !important;
+}
+
+.goog-te-gadget {
+  font-size: 0px !important;
+}
+
+html {
+  top: 0px !important;
+}
