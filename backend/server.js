@@ -20,6 +20,7 @@ app.use(
       const allowedOrigins = [
         "http://localhost:8080",
         "http://localhost:5173",
+        "https://opticampus-nine.vercel.app/",
       ];
 
     
